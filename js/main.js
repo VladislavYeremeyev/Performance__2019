@@ -24453,6 +24453,17 @@ const devices = document.querySelector('.devices');
 const pagiantorDevs = document.querySelector('.devices__paginator');
 let currentPageDevs = 1;
 
+// pagiantorDevs.classList.toggle('paginator_hide', panelCountDevs < 7);
+
+$('.card').each(function(e) {
+    if ($(this).hasClass('card_size_s')) {
+        $(this).css({'border-radius': '22px'})
+    } else {
+        $(this).css({'border-radius': '54px'})
+    }
+});
+
+
 let curValue;
 let curRotate;
 let maxRotate = 0.42; // 150 градусов
@@ -24603,6 +24614,13 @@ document.querySelectorAll('.panel_floor').forEach(p => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    $('.card').each(function(e) {
+        if ($(this).hasClass('card_size_s')) {
+            $(this).css({'border-radius': '22px'})
+        } else {
+            $(this).css({'border-radius': '23px'})
+        }
+    });
     var waterContainer = document.querySelector('.card.card_size_s:last-child');
 
     waterContainer.innerHTML = 
@@ -24686,6 +24704,13 @@ var storage, initCriticalCam = function () {
         y.push(e), m = e.clientX, u = e.clientY, p = parseInt(g.style.backgroundPositionX, 10), v = parseInt(g.style.backgroundPositionY, 10), 2 == y.length && (h = Math.atan2(y[1].clientY - y[0].clientY, y[1].clientX - y[0].clientX) * (180 / Math.PI)), g.addEventListener("pointermove", t)
     }), document.addEventListener("pointerup", e), g.addEventListener("onpointerup", e)
 };
+
+$(document).ready(function(){
+
+    var carousel = $("#carousel");
+
+    carousel.owlCarousel();
+});
 
 function status(e) {
     return 200 <= e.status && e.status < 300 ? Promise.resolve(e) : Promise.reject(new Error(e.statusText))
