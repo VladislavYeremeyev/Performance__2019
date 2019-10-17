@@ -1196,3 +1196,7 @@ html {
         margin-top: 10px
     }
 }
+
+.owl-wrapper-outer{
+	overflow: hidden;
+}
