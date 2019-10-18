@@ -237,38 +237,6 @@ body, html {
     display: block
 }
 
-.header-logo {
-    width: 108px;
-    float: left;
-    margin: 32px 21px 0 0
-}
-
-.header-menu {
-    float: left;
-    margin: 38px 0 0 0;
-    padding: 0
-}
-
-.header-menu__link {
-    float: left;
-    margin: 0 28px 0 0;
-    font-size: 16px;
-    font-weight: 700;
-    color: #333;
-    opacity: .6;
-    list-style: none;
-    cursor: pointer;
-    text-decoration: none
-}
-
-.header-menu__switcher {
-    display: none
-}
-
-.header-menu__link_active {
-    opacity: 1
-}
-
 footer {
     height: 50px;
     flex-grow: 0;
@@ -327,16 +295,6 @@ footer {
     color: #fff;
     padding: 0
 }
-.logo {
-    display: inline-block;
-    width: 108px;
-    height: 27px;
-    position: relative;
-    background-image: url("./assets/logo.png");
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: cover;
-}
 .logo__ya {
     display: block;
     position: absolute;
@@ -356,14 +314,6 @@ footer {
     width: 100%;
     left: 0;
     top: 0;
-}
-.main {
-    height: 331px;
-    border-radius: 20px;
-    padding: 0 20px 0 25px;
-    display: flex;
-    justify-content: space-between;
-    background: url("assets/sh.png") center center/cover no-repeat;
 }
 .main__greeting {
     margin-top: 6px;
@@ -451,14 +401,6 @@ footer {
     height: 40px;
     padding-right: 32px;
 }
-.modal__value_temp {
-    background: url("assets/panel__icon_temp_on.svg") calc(100% + 10px) 0%/contain no-repeat;
-}
-.modal__value_light {
-    height: 45px;
-    padding-right: 45px;
-    background: url("assets/panel__icon_light_off.svg") right center/contain no-repeat;
-}
 .modal__status {
     margin-bottom: 20px;
 }
@@ -486,7 +428,12 @@ footer {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
+@keyframes modal {
+    from {
+        transform: scale(0.2);
+    }
+    to { transform: scale(1); }
+}
 * {
     box-sizing: border-box;
 }
@@ -615,30 +562,12 @@ html {
 .weather__item_outside {
     padding-right: 31px;
 }
-.weather__item_cloud-drizzle {
-    background: url("assets/cloud-drizzle.png") 100% 70%/26px no-repeat;
-}
 .stats {
     opacity: 0;
 }
 .panel__icon {
     width: 24px;
     height: 24px;
-}
-.panel__icon_temp_off {
-    background: url("assets/panel__icon_temp_off.svg") center center/contain no-repeat;
-}
-.panel__icon_temp_on {
-    background: url("assets/panel__icon_temp_on.svg") center center/contain no-repeat;
-}
-.panel__icon_light_off {
-    background: url("assets/panel__icon_light_off.svg") center center/contain no-repeat;
-}
-.panel__icon_light_on {
-    background: url("assets/panel__icon_light_on.svg") center center/contain no-repeat;
-}
-.panel__icon_clock {
-    background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
 }
 
 .card-heading {
@@ -652,11 +581,18 @@ html {
     width: 47px
 }
 
+.card-icon-wrap.foo {
+    width: 48px
+}
+
 .card-title {
     font-size: 24px;
     font-weight: 700;
     padding-left: 18px;
     line-height: 27px
+}
+.card-title.bar {
+    padding-left: 17px;
 }
 
 .card-specs {
@@ -725,7 +661,7 @@ html {
     width: 100%;
     margin-top: 40px;
     display: block;
-    background: url(../img/cam2.jpg);
+    background: url(./cam.webp);
     border-radius: 20px;
     background-size: cover;
     background-position: 0 0;
@@ -916,21 +852,6 @@ html {
     float: left
 }
 
-.video-volume {
-    background: url(../img/sound_n.png);
-    background-size: cover;
-    height: 40px;
-    width: 40px;
-    margin-left: 40px;
-    cursor: pointer
-}
-
-.video-volume_unmuted {
-    background: green;
-    background: url(../img/sound.png);
-    background-size: cover
-}
-
 .analyser {
     position: absolute;
     z-index: 5;
@@ -1048,7 +969,8 @@ html {
         grid-column: span 6
     }
 
-    .card-icon-wrap {
+    .card-icon-wrap,
+    .card-icon-wrap.foo {
         width: 35px
     }
 
@@ -1056,7 +978,8 @@ html {
         width: 35px
     }
 
-    .card-title {
+    .card-title,
+    .card-title.bar {
         font-size: 14px;
         padding-left: 16px;
         line-height: 16px
